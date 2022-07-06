@@ -1,0 +1,73 @@
+
+
+<div>
+  <ng-template    #enough>
+    <div class="empty" >
+      <div class="info">
+        <h4>You don't have any item in your cart</h4>
+        <a routerLink="/otherPages/products" class="btn btn-success">Start Shopping</a>
+      </div>
+    </div>
+  </ng-template>
+   
+  <ng-container  *ngIf="cartItems.length >0 ; else enough">
+    <div class="table_responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Items Count</th>
+            <th>Total Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let item of cartItems let i =index">
+            <ng-container *ngIf="item.SelectedQuantity!=0">
+              <td>{{i+1}}</td>
+              <td><img src="http://localhost:54300/Resources/Images/{{item.Image}}"
+                  style="width: 100px; height: 100px;"></td>
+                  <td>{{item.ProductName}}</td>
+                <td>{{item.prouductPrice}}</td>
+              <td>
+                
+                <div class="content">
+
+                  <button class="btn style" type="button" (click)="inc(item.ProductID,item.SelectedQuantity)"><i class="fa fa-plus"></i></button>
+                  <span>{{item.SelectedQuantity}}</span>
+                  <button class="btn style" type="button" (click)="dec(item.ProductID,item.SelectedQuantity)"><i class="fa fa-minus"></i></button>
+                </div>
+              </td>
+              <td>{{item.SelectedQuantity *item.prouductPrice |currency :' EGP'}}</td>
+              <td> <span class="action_btn">
+                  <button type="button" class="btn b" #RemoveButton
+                    (click)="RemoveFromCard(item.ProductID)"><i class="fa fa-trash"></i></button>
+                </span>
+              </td>
+            </ng-container>
+          </tr>
+
+        </tbody>
+      </table>
+      <br>
+      <br>
+      <div class="row">
+
+        <div class="col-md-6">
+          <h3>Total {{Total}}</h3>
+        </div>
+        <div class="col-md-6 text-right">
+        <button type="button" class="btn b2" (click)="RemoveAllFromCard()"><i class="fa fa-trash"></i>Remove All Items</button>
+      <button type="button" class="btn b2" routerLink="/otherPages/payment">Buy</button>
+
+      </div>
+      </div>
+    </div>
+    <div> cart items  {{cartItems.length}}
+    </div>
+  </ng-container>
+</div>

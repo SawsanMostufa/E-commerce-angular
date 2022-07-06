@@ -1,0 +1,81 @@
+<!-- 
+ <form class="d-flex search col-lg-4 col-md-12 col-sm-12 col-12" >
+  
+  <input class="form-control me-2" type="search" placeholder="Search"
+  aria-describedby="inputGroup-sizing-default"
+  aria-label="Search" [(ngModel)]="ProductName">
+  <button class="btn " type="submit" id="inputGroup-sizing-default"   
+   style="background-color: #2b2d42;color: white;" >Search</button> 
+   
+
+</form> -->
+<section>
+  <main class="grid">
+
+ 
+              <input
+              style="justify-content:center; display:flex;"
+                type="text"
+                [(ngModel)]="ProductName"
+                placeholder="search"
+                class="form-control mt-5 me-5"
+                aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default"
+              />
+  </main>
+</section>
+
+  <section class="category" >
+    <div class="container category" >
+      <div class="row" >
+        <h1 style="justify-content: center; text-align:center;padding: 25px; margin-bottom: 35px;">Categories</h1>
+        <ng-container *ngFor="let cat of CategoryList; let i=index"  > 
+          <div class="col-lg-2 col-md-3 col-sm-6 col-12">
+              <a (click)="Filter(cat.id)" > 
+             <img src="assets/imges/{{i+1}}/cat.jpeg"
+             style="width: 100px; height: 100px; border-radius: 50%;" >
+              <h2>{{cat.name}}</h2>
+              </a>   
+          </div>
+       </ng-container>
+      </div>
+    </div>
+  </section>
+ 
+
+             
+
+<div class="container"  >
+  
+    
+
+<!-- 
+  <article  *ngFor="let item of FileredProducts | filter: ProductName  ">
+
+    <img src="http://localhost:54300/Resources/Images/{{item.image}}">
+    <div class="text">
+      <h3>{{item.name}}</h3>
+      <h4>{{item.price}}</h4>
+      <button type="button" [routerLink]="['/otherPages/products/',item.id]">Details</button>
+    </div>
+  </article>
+</main>
+
+</div> -->
+<div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+  <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3" >
+      <div class="col" *ngFor="let item of FileredProducts | filter: ProductName ">
+          <div class="card h-100 shadow-sm"> <img
+                  src="http://localhost:54300/Resources/Images/{{item.image}}"
+                  class="card-img-top" alt="...">
+              <div class="card-body">
+                  <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">AED
+                          </span> <span class="float-end price-hp">{{item.price}}&euro;</span> </div>
+                          <h2>{{item.name}}</h2>
+                  <h5 class="card-title">{{item.description}}</h5>
+                  <div class="text-center my-4"> <a [routerLink]="['/otherPages/products/',item.id]" class="btn btn-warning">Check offer</a> </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

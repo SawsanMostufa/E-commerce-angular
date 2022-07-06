@@ -1,0 +1,16 @@
+
+    <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+        <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3" *ngFor="let item of FileredProducts">
+            <div class="col">
+                <div class="card h-100 shadow-sm"> <img
+                        src="http://localhost:54300/Resources/Images/{{item.image}}"
+                        class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">AED
+                                </span> <span class="float-end price-hp">{{item.price}}&euro;</span> </div>
+                        <h5 class="card-title">{{item.description}}</h5>
+                        <div class="text-center my-4"> <a [routerLink]="['/otherPages/products/',item.id]" class="btn btn-warning">Check offer</a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>

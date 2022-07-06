@@ -1,0 +1,50 @@
+.cart{
+  padding: 5px;
+
+}
+.favoriet{
+  padding: 5px;
+}
+.profile{
+  padding: 5px;
+}
+.nav{
+  background-color:#8e9aaf;
+  // #2b2d42;
+  // #8e9aaf;
+   color: white;
+  // height: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.nav a{
+  color: white;
+}
+.text{
+  color: white;
+  font-size:20px;
+}
+.textDrop{
+  color: black;
+}
+
+.cart_value{
+  position:absolute;
+  top:-13px;
+  right:-25px;
+  background:#fff;
+  border:1px  solid #ccc ;
+  border-radius:50%;
+  padding:2px 7px;
+  font-weight:700;
+  font-size:14px;
+  color: black;
+  }
+  .cart_icon
+  {
+  position: relative;
+  cursor: pointer;
+  }
+  a{
+    cursor: pointer;
+  }
